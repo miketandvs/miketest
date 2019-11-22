@@ -13,11 +13,16 @@ def move():
   rate = rospy.Rate(30) # 30hz
   # initialize a publisher to send joints' angular position to the robot
   robot_joint1_pub = rospy.Publisher("/target/x_position_controller/command", Float64, queue_size=10)
-  robot_joint2_pub = rospy.Publisher("/target/y_position_controller/command", Float64, queue_size=10)
-  robot_joint3_pub = rospy.Publisher("/target/z_position_controller/command", Float64, queue_size=10)
-  robot_joint4_pub = rospy.Publisher("/target2/x2_position_controller/command", Float64, queue_size=10)
+#  robot_joint2_pub = rospy.Publisher("/target/y_position_controller/command", Float64, queue_size=10)
+#  robot_joint3_pub = rospy.Publisher("/target/z_position_controller/command", Float64, queue_size=10)
+#  robot_joint4_pub = rospy.Publisher("/target2/x2_position_controller/command", Float64, queue_size=10)
   robot_joint5_pub = rospy.Publisher("/target2/y2_position_controller/command", Float64, queue_size=10)
   robot_joint6_pub = rospy.Publisher("/target2/z2_position_controller/command", Float64, queue_size=10)
+
+  robot_joint2_pub = rospy.Publisher("/robot/joint2_position_controller/command",Float64, queue_size=10)
+  robot_joint3_pub = rospy.Publisher("/robot/joint3_position_controller/command",Float64, queue_size=10)
+  robot_joint4_pub = rospy.Publisher("/robot/joint4_position_controller/command",Float64, queue_size=10)
+
   t0 = rospy.get_time()
   while not rospy.is_shutdown():
     cur_time = np.array([rospy.get_time()])-t0
